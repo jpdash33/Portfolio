@@ -1,0 +1,876 @@
+
+/* =========================================================
+   JPD PORTFOLIO — MAIN CSS
+   Warm premium theme | Gold accents | Responsive layout
+   ========================================================= */
+
+/* ---------- Design Tokens ---------- */
+
+:root {
+    --page: #f7f5f0;
+    --ink: #17243b;
+    --muted: #687386;
+
+    --gold: #b89a5a;
+    --gold-dark: #9b7d3f;
+    --gold-soft: #eee4cc;
+
+    --blue: #315fe8;
+    --blue-dark: #244fcf;
+
+    --line: #e5e0d5;
+    --white: #ffffff;
+
+    --radius: 10px;
+    --ease: 0.28s ease;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 85% 18%,
+            rgba(184, 154, 90, 0.07),
+            transparent 27%
+        ),
+        var(--page);
+
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ---------- Main Hero Layout ---------- */
+
+.home-hero {
+    width: min(1180px, calc(100% - 64px));
+    min-height: calc(100svh - 92px);
+
+    margin: 0 auto;
+    padding: 55px 0 65px;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 0.94fr)
+        minmax(0, 1.06fr);
+
+    align-items: center;
+    gap: clamp(35px, 5vw, 80px);
+}
+
+/* ---------- Left Content ---------- */
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+    padding: 10px 0 0;
+
+    animation: hero-enter 0.7s ease both;
+}
+
+/* ---------- Greeting ---------- */
+
+.intro-line {
+    margin: 0 0 12px;
+
+    color: #5e6879;
+    font-size: clamp(18px, 1.8vw, 21px);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* ---------- Main Name ---------- */
+
+#hero-title {
+    max-width: 650px;
+    margin: 0;
+
+    color: var(--gold);
+
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(43px, 5.2vw, 68px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -3.2px;
+
+    overflow-wrap: break-word;
+}
+
+/* Gold underline */
+
+#hero-title::after {
+    content: "";
+
+    display: block;
+    width: 72px;
+    height: 4px;
+
+    margin-top: 20px;
+
+    border-radius: 50px;
+    background: var(--gold);
+
+    transform-origin: left;
+    animation: underline-enter 0.7s 0.3s ease both;
+}
+
+/* ---------- Description ---------- */
+
+.hero-description {
+    max-width: 510px;
+    margin: 25px 0 0;
+
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.85;
+}
+
+/* ---------- Main Action Buttons ---------- */
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 31px;
+}
+
+.button {
+    min-height: 50px;
+    padding: 0 21px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--ease),
+        background-color var(--ease),
+        border-color var(--ease),
+        box-shadow var(--ease);
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.button:focus-visible {
+    outline: 3px solid rgba(49, 95, 232, 0.3);
+    outline-offset: 4px;
+}
+
+/* Primary action */
+
+.button-primary {
+    color: var(--white);
+    background: var(--blue);
+
+    box-shadow:
+        0 7px 18px rgba(49, 95, 232, 0.16);
+}
+
+.button-primary:hover {
+    color: var(--white);
+    background: var(--blue-dark);
+
+    box-shadow:
+        0 12px 25px rgba(49, 95, 232, 0.22);
+}
+
+.button-primary span {
+    display: inline-block;
+    font-size: 18px;
+
+    transition: transform var(--ease);
+}
+
+.button-primary:hover span {
+    transform: translate(3px, -2px);
+}
+
+/* Secondary action, if used */
+
+.button-secondary {
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.75);
+    border-color: #ded8ca;
+}
+
+.button-secondary:hover {
+    color: var(--ink);
+    background: var(--white);
+    border-color: #c8b88f;
+
+    box-shadow: 0 7px 18px rgba(23, 36, 59, 0.06);
+}
+
+/* ---------- Social Platform Buttons ---------- */
+
+.hero-footer {
+    display: flex;
+    align-items: center;
+
+    margin-top: 45px;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Long horizontal buttons */
+
+.social-links a {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-width: 135px;
+    min-height: 50px;
+    padding: 0 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+
+    border: 1px solid #ded8ca;
+    border-radius: 9px;
+
+    color: #46536a;
+    background: rgba(255, 255, 255, 0.82);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+
+    box-shadow:
+        0 3px 10px rgba(23, 36, 59, 0.035);
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+        box-shadow 0.3s ease;
+}
+
+/* Animated background layer */
+
+.social-links a::before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    background: var(--ink);
+
+    transform: translateY(101%);
+
+    transition:
+        transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Platform icons */
+
+.social-links a i {
+    position: relative;
+    z-index: 1;
+
+    font-size: 21px;
+    line-height: 1;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Platform names supplied by CSS */
+
+.social-links a:first-child::after {
+    content: "GitHub";
+}
+
+.social-links a:last-child::after {
+    content: "LinkedIn";
+}
+
+.social-links a::after {
+    position: relative;
+    z-index: 1;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+/* Hover animation */
+
+.social-links a:hover {
+    color: var(--white);
+    border-color: var(--ink);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 24px rgba(23, 36, 59, 0.13);
+}
+
+.social-links a:hover::before {
+    transform: translateY(0);
+}
+
+.social-links a:hover i {
+    color: var(--gold);
+    transform: scale(1.12) rotate(-4deg);
+}
+
+/* LinkedIn uses blue */
+
+.social-links a:last-child::before {
+    background: var(--blue);
+}
+
+.social-links a:last-child:hover {
+    border-color: var(--blue);
+}
+
+.social-links a:last-child:hover i {
+    color: var(--white);
+}
+
+/* Press feedback */
+
+.social-links a:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 3px 8px rgba(23, 36, 59, 0.08);
+}
+
+/* Keyboard accessibility */
+
+.social-links a:focus-visible {
+    outline: 3px solid rgba(49, 95, 232, 0.3);
+    outline-offset: 4px;
+}
+
+/* ---------- Right Illustration ---------- */
+
+.hero-visual {
+    position: relative;
+    isolation: isolate;
+
+    min-width: 0;
+    min-height: 510px;
+
+    display: grid;
+    place-items: center;
+
+    animation: visual-enter 0.8s 0.12s ease both;
+}
+
+/* Warm circular backdrop */
+
+.hero-visual::before {
+    content: "";
+
+    position: absolute;
+    z-index: -2;
+
+    width: min(92%, 510px);
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #eee8d9 0%,
+            #f0ece2 52%,
+            transparent 72%
+        );
+}
+
+/* Fine gold outline */
+
+.hero-visual::after {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+
+    width: 76%;
+    height: 74%;
+
+    right: 1%;
+    bottom: 4%;
+
+    border: 1px solid rgba(184, 154, 90, 0.25);
+    border-radius: 48% 52% 45% 55%;
+
+    transform: rotate(-12deg);
+    pointer-events: none;
+}
+
+/* Programmer image */
+
+.programmer-image {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+
+    width: 108%;
+    max-width: 650px;
+    max-height: 570px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 18px 20px rgba(27, 43, 73, 0.08)
+        );
+}
+
+/* ---------- Developer Tag ---------- */
+
+.visual-tag {
+    position: absolute;
+    z-index: 2;
+
+    top: 8%;
+    right: -1%;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 12px 15px;
+
+    border: 1px solid rgba(226, 220, 207, 0.95);
+    border-radius: 9px;
+
+    color: #596579;
+    background: rgba(255, 255, 255, 0.93);
+
+    box-shadow:
+        0 8px 24px rgba(27, 43, 73, 0.06);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.tag-symbol {
+    color: var(--gold);
+    font-family: monospace;
+    font-size: 14px;
+}
+
+/* ---------- Floating Developer Note ---------- */
+
+.visual-note {
+    position: absolute;
+    z-index: 2;
+
+    left: -3%;
+    bottom: 9%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 17px;
+
+    border: 1px solid rgba(226, 220, 207, 0.95);
+    border-radius: 11px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 12px 30px rgba(27, 43, 73, 0.08);
+}
+
+.note-icon {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    color: var(--gold-dark);
+    background: var(--gold-soft);
+}
+
+.visual-note strong,
+.visual-note small {
+    display: block;
+}
+
+.visual-note strong {
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.visual-note small {
+    margin-top: 4px;
+    color: #7a8699;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* ---------- Entrance Animations ---------- */
+
+@keyframes hero-enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes visual-enter {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes underline-enter {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* ---------- Large Screens ---------- */
+
+@media (min-width: 1400px) {
+    .home-hero {
+        min-height: 790px;
+    }
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 900px) {
+    .home-hero {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 0.9fr);
+
+        gap: 25px;
+    }
+
+    #hero-title {
+        font-size: clamp(42px, 5.5vw, 60px);
+        letter-spacing: -2.5px;
+    }
+
+    .hero-visual {
+        min-height: 410px;
+    }
+
+    .visual-note {
+        left: -1%;
+        bottom: 6%;
+    }
+
+    .visual-tag {
+        right: -2%;
+    }
+
+    .social-links a {
+        min-width: 125px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 700px) {
+    .home-hero {
+        width: calc(100% - 36px);
+
+        grid-template-columns: 1fr;
+        gap: 25px;
+
+        padding: 50px 0 40px;
+    }
+
+    .hero-copy {
+        padding-top: 0;
+    }
+
+    #hero-title {
+        font-size: clamp(40px, 11vw, 60px);
+        letter-spacing: -2.4px;
+    }
+
+    #hero-title::after {
+        margin-top: 16px;
+    }
+
+    .hero-description {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .hero-actions {
+        margin-top: 25px;
+    }
+
+    .hero-footer {
+        margin-top: 34px;
+    }
+
+    .social-links {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .social-links a {
+        flex: 1;
+        min-width: 0;
+        min-height: 50px;
+        padding: 0 12px;
+    }
+
+    .hero-visual {
+        min-height: 360px;
+        margin-top: 5px;
+    }
+
+    .programmer-image {
+        width: 100%;
+        max-height: 420px;
+    }
+
+    .visual-tag {
+        top: 2%;
+        right: 0;
+    }
+
+    .visual-note {
+        left: 0;
+        bottom: 4%;
+    }
+}
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width: 390px) {
+    #hero-title {
+        font-size: 39px;
+        letter-spacing: -1.8px;
+    }
+
+    .button {
+        min-height: 46px;
+        padding-inline: 15px;
+    }
+
+    .social-links {
+        gap: 8px;
+    }
+
+    .social-links a {
+        min-height: 47px;
+        padding-inline: 8px;
+        gap: 8px;
+    }
+
+    .social-links a i {
+        font-size: 18px;
+    }
+
+    .social-links a::after {
+        font-size: 12px;
+    }
+
+    .hero-visual {
+        min-height: 310px;
+    }
+
+    .visual-note {
+        padding: 10px 11px;
+    }
+
+    .visual-note small {
+        max-width: 155px;
+    }
+}
+
+/* ---------- Reduced Motion Accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+
+
+
+/* Hero action buttons */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.hero-actions .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 0 23px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* CV button — elegant gold outline */
+.hero-actions .button-cv {
+    position: relative;
+    overflow: hidden;
+    color: #8B713B;
+    background: transparent;
+    border: 1.5px solid #B89A5A;
+    box-shadow: 0 3px 10px rgba(20, 30, 50, 0.04);
+}
+
+/* Subtle gold background sweep */
+.hero-actions .button-cv::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #B89A5A;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+    z-index: 0;
+}
+
+.hero-actions .button-cv span,
+.hero-actions .button-cv i {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-actions .button-cv:hover {
+    color: #fff;
+    border-color: #B89A5A;
+    transform: translateY(-3px);
+    box-shadow: 0 9px 22px rgba(184, 154, 90, 0.22);
+}
+
+.hero-actions .button-cv:hover::before {
+    transform: scaleX(1);
+}
+
+/* Download icon animation */
+.hero-actions .cv-icon {
+    transition: transform 0.35s ease;
+}
+
+.hero-actions .button-cv:hover .cv-icon {
+    animation: cv-download 0.65s ease-in-out;
+}
+
+@keyframes cv-download {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    35% {
+        transform: translateY(4px);
+    }
+    65% {
+        transform: translateY(-2px);
+    }
+}
+
+/* Keyboard accessibility */
+.hero-actions .button:focus-visible {
+    outline: 3px solid rgba(184, 154, 90, 0.45);
+    outline-offset: 4px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .hero-actions .button,
+    .hero-actions .button-cv::before,
+    .hero-actions .cv-icon {
+        transition: none;
+        animation: none;
+    }
+}

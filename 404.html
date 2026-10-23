@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 — Page Not Found | Jagannath Prasad Dash</title>
+    <meta name="description" content="The page you're looking for could not be found. Return to Jagannath Prasad Dash's developer portfolio.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#F8F7F3">
+
+    <link rel="stylesheet" href="./CSS/404.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <main class="error-page">
+        <header class="error-header">
+            <span class="brand-name">Jagannath Prasad Dash<span>.</span></span>
+            <span class="status-label">
+                <span class="status-dot"></span>
+                PAGE NOT FOUND
+            </span>
+        </header>
+
+        <section class="error-content">
+            <div class="error-visual" aria-hidden="true">
+                <span class="error-number">4</span>
+                <div class="error-orbit">
+                    <div class="orbit-ring"></div>
+                    <div class="orbit-core">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <span class="orbit-dot"></span>
+                </div>
+                <span class="error-number">4</span>
+            </div>
+
+            <p class="eyebrow">OOPS! WRONG TURN</p>
+
+            <h1>This page took<br>
+                <span>a little detour.</span>
+            </h1>
+
+            <p class="error-description">
+                The page you're looking for doesn't exist, may have moved,
+                or the link might be incorrect. Let's get you back on track.
+            </p>
+
+            <div class="error-actions">
+                <a href="Home.html" class="home-button">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Homepage
+                </a>
+
+            </div>
+
+            <p class="error-code">ERROR CODE <span>404</span></p>
+        </section>
+
+        <footer class="error-footer">
+            <span>© <span id="current-year"></span> Jagannath Prasad Dash</span>
+            <span class="footer-note">Designed with purpose<span>.</span></span>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById("current-year").textContent =
+            new Date().getFullYear();
+    </script>
+</body>
+</html>
