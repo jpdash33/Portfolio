@@ -3,6 +3,56 @@
    ABOUT PAGE — MAIN CONTENT ONLY
 ================================= */
 
+
+
+:root {
+    --page: #f7f5f0;
+    --ink: #17243b;
+    --muted: #687386;
+
+    --gold: #b89a5a;
+    --gold-dark: #9b7d3f;
+    --gold-soft: #eee4cc;
+
+    --blue: #315fe8;
+    --blue-dark: #244fcf;
+
+    --line: #e5e0d5;
+    --white: #ffffff;
+
+    --radius: 10px;
+    --ease: 0.28s ease;
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 85% 18%,
+            rgba(184, 154, 90, 0.07),
+            transparent 27%
+        ),
+        var(--page);
+
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
 .about-main {
     width: min(1060px, calc(100% - 48px));
     margin: 54px auto 80px;

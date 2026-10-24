@@ -1,0 +1,309 @@
+
+/* =========================================
+   PROJECTS PAGE — FOREST SLATE & MUTED GOLD
+   ========================================= */
+
+:root {
+    --project-bg: #243B36;
+    --project-bg-hover: #293F38;
+    --project-preview-bg: #1D302B;
+    --project-border: #354D45;
+    --project-border-hover: #B89A5A;
+
+    --project-title: #F3F0E8;
+    --project-text: #C0CCC5;
+
+    --project-gold: #D5B875;
+    --project-gold-hover: #E4CB91;
+
+    --project-code-bg: #D5B875;
+    --project-code-text: #243B36;
+
+    --page: #f7f5f0;
+    --ink: #17243b;
+    --muted: #687386;
+
+    --gold: #b89a5a;
+    --gold-dark: #9b7d3f;
+    --gold-soft: #eee4cc;
+
+    --blue: #315fe8;
+    --blue-dark: #244fcf;
+
+    --line: #e5e0d5;
+    --white: #ffffff;
+
+    --radius: 10px;
+    --ease: 0.28s ease;
+
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 85% 18%,
+            rgba(184, 154, 90, 0.07),
+            transparent 27%
+        ),
+        var(--page);
+
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* Main projects container */
+.projects-main {
+    width: min(1180px, calc(100% - 36px));
+    margin: 35px auto 60px;
+}
+
+/* Optional page introduction */
+.projects-heading {
+    margin-bottom: 28px;
+}
+
+.projects-heading h1 {
+    margin: 0 0 10px;
+    color: var(--project-title);
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.projects-heading p {
+    max-width: 650px;
+    margin: 0;
+    color: var(--project-text);
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Responsive project grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+/* Individual project card */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+
+    background: var(--project-bg);
+    border: 1px solid var(--project-border);
+    border-radius: 12px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--project-border-hover);
+    box-shadow: 0 12px 28px rgba(10, 24, 19, 0.2);
+}
+
+/* Project image preview */
+.project-preview {
+    display: block;
+    height: 155px;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    background: var(--project-preview-bg);
+    border-bottom: 1px solid var(--project-border);
+}
+
+.project-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.35s ease;
+}
+
+.project-card:hover .project-preview img {
+    transform: scale(1.035);
+}
+
+/* Card content */
+.project-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 16px;
+}
+
+/* Project title */
+.project-title {
+    margin: 0 0 9px;
+
+    color: var(--project-title);
+    font-family: "Manrope", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.45;
+    text-align: left;
+}
+
+/* Project description */
+.project-description {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0;
+
+    color: var(--project-text);
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+}
+
+/* Action buttons */
+.project-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 9px;
+
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+/* Shared button style */
+.project-btn {
+    display: inline-flex;
+    width: 37px;
+    height: 35px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    color: var(--project-gold);
+    border: 1px solid #64766A;
+    border-radius: 7px;
+
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Preview / live project button */
+.project-btn-live:hover {
+    transform: translateY(-2px);
+    background: var(--project-gold);
+    color: var(--project-bg);
+    border-color: var(--project-gold);
+}
+
+/* Source code button */
+.project-btn-code {
+    background: var(--project-code-bg);
+    color: var(--project-code-text);
+    border-color: var(--project-code-bg);
+}
+
+.project-btn-code:hover {
+    transform: translateY(-2px);
+    background: var(--project-gold-hover);
+    color: var(--project-code-text);
+    border-color: var(--project-gold-hover);
+}
+
+/* Keyboard accessibility */
+.project-btn:focus-visible {
+    outline: 2px solid var(--project-gold-hover);
+    outline-offset: 3px;
+}
+
+.project-card:focus-within {
+    border-color: var(--project-border-hover);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 540px) {
+    .projects-main {
+        width: calc(100% - 28px);
+        margin-top: 24px;
+        margin-bottom: 40px;
+    }
+
+    .projects-heading {
+        margin-bottom: 20px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .project-preview {
+        height: 190px;
+    }
+
+    .project-content {
+        padding: 15px;
+    }
+
+    .project-title {
+        font-size: 16px;
+    }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-preview img,
+    .project-btn {
+        transition: none;
+    }
+
+    .project-card:hover,
+    .project-card:hover .project-preview img,
+    .project-btn:hover {
+        transform: none;
+    }
+}
