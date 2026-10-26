@@ -1,5 +1,5 @@
 const validPages = [
-    "Home.html",
+    "index.html",
     "about.html",
     "project.html",
     "404.html"
