@@ -151,6 +151,37 @@ body {
     transform: scale(1.035);
 }
 
+.project-btn-live {
+    background: transparent;
+    color: #D5B875;
+    border-color: #64766A;
+}
+
+.project-btn-live:hover {
+    background: #D5B875;
+    border-color: #D5B875;
+    color: #243B36;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(213, 184, 117, 0.15);
+}
+
+/* Keyboard accessibility */
+.project-btn:focus-visible {
+    outline: 2px solid #E4CB91;
+    outline-offset: 3px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .project-btn {
+        transition: none;
+    }
+
+    .project-btn:hover {
+        transform: none;
+    }
+}
+
 /* Card content */
 .project-content {
     display: flex;
@@ -192,8 +223,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 9px;
-
+    gap: 10px;
     margin-top: auto;
     padding-top: 16px;
 }
@@ -201,26 +231,28 @@ body {
 /* Shared button style */
 .project-btn {
     display: inline-flex;
-    width: 37px;
-    height: 35px;
-    flex-shrink: 0;
     align-items: center;
     justify-content: center;
+    gap: 7px;
+    min-height: 36px;
+    padding: 0 13px;
 
-    background: transparent;
-    color: var(--project-gold);
     border: 1px solid #64766A;
     border-radius: 7px;
 
-    font-size: 15px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
     text-decoration: none;
+    white-space: nowrap;
     cursor: pointer;
 
     transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
+        background 0.22s ease,
+        color 0.22s ease,
+        border-color 0.22s ease,
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
 }
 
 /* Preview / live project button */
@@ -233,16 +265,17 @@ body {
 
 /* Source code button */
 .project-btn-code {
-    background: var(--project-code-bg);
-    color: var(--project-code-text);
-    border-color: var(--project-code-bg);
+    background: #D5B875;
+    color: #243B36;
+    border-color: #D5B875;
 }
 
 .project-btn-code:hover {
+    background: #E4CB91;
+    border-color: #E4CB91;
+    color: #243B36;
     transform: translateY(-2px);
-    background: var(--project-gold-hover);
-    color: var(--project-code-text);
-    border-color: var(--project-gold-hover);
+    box-shadow: 0 4px 10px rgba(213, 184, 117, 0.18);
 }
 
 /* Keyboard accessibility */

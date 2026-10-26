@@ -4,6 +4,7 @@ function checkConnection() {
     if (!navigator.onLine && page !== "404.html") {
         sessionStorage.setItem("lastPage", window.location.href);
         window.location.replace("404.html");
+        alert("Offline :(") 
     }
     else if (navigator.onLine && page === "404.html") {
         // back online while on the error page, return to where the user was
