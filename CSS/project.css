@@ -165,6 +165,10 @@ body {
     box-shadow: 0 4px 10px rgba(213, 184, 117, 0.15);
 }
 
+.project-description span {
+    display: block;
+}
+
 /* Keyboard accessibility */
 .project-btn:focus-visible {
     outline: 2px solid #E4CB91;
